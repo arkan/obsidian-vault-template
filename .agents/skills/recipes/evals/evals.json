@@ -1,0 +1,149 @@
+{
+  "skill_name": "recipes",
+  "evals": [
+    {
+      "id": 1,
+      "name": "list-explicit",
+      "prompt": "/recipes list",
+      "should_trigger": true,
+      "expected_action": "exec recipes.py list",
+      "expected_target": "stdout list 2 recettes (carbonara, cake)"
+    },
+    {
+      "id": 2,
+      "name": "list-by-tag-explicit",
+      "prompt": "/recipes list --tag italien",
+      "should_trigger": true,
+      "expected_action": "exec recipes.py list --tag italien",
+      "expected_target": "stdout 1 résultat (carbonara)"
+    },
+    {
+      "id": 3,
+      "name": "show-by-alias",
+      "prompt": "/recipes show carbo",
+      "should_trigger": true,
+      "expected_action": "exec recipes.py show carbo",
+      "expected_target": "résolution alias carbo → carbonara, affichage complet"
+    },
+    {
+      "id": 4,
+      "name": "add-conversational",
+      "prompt": "ajoute la recette du risotto aux champignons, italien comfort food",
+      "should_trigger": true,
+      "expected_action": "recipes.py add",
+      "expected_target": "Resources/Recipes/risotto-aux-champignons.md créé, peut demander prep/cook time"
+    },
+    {
+      "id": 5,
+      "name": "used-conversational",
+      "prompt": "j'ai fait des pâtes carbonara hier soir",
+      "should_trigger": true,
+      "expected_action": "recipes.py used carbonara",
+      "expected_target": "use_count incrémenté, last_used = 2026-04-25 ; peut proposer rate"
+    },
+    {
+      "id": 6,
+      "name": "rate-conversational",
+      "prompt": "5 étoiles pour la carbo",
+      "should_trigger": true,
+      "expected_action": "recipes.py rate carbonara 5",
+      "expected_target": "rating: 5 ; smart-default sur l'alias 'carbo'"
+    },
+    {
+      "id": 7,
+      "name": "search-by-ingredient",
+      "prompt": "qu'est-ce que je peux cuisiner avec du chèvre ?",
+      "should_trigger": true,
+      "expected_action": "search/grep ingrédient",
+      "expected_target": "trouve cake-au-chevre-et-epinards"
+    },
+    {
+      "id": 8,
+      "name": "search-by-tag-natural",
+      "prompt": "donne-moi une idée de plat italien rapide",
+      "should_trigger": true,
+      "expected_action": "list --tag italien filtré sur 'rapide' ou random --tag italien",
+      "expected_target": "propose carbonara"
+    },
+    {
+      "id": 9,
+      "name": "favorite-toggle",
+      "prompt": "/recipes favorite carbonara",
+      "should_trigger": true,
+      "expected_action": "recipes.py favorite carbonara",
+      "expected_target": "favorite toggle (était true → devient false)"
+    },
+    {
+      "id": 10,
+      "name": "random-recipe",
+      "prompt": "/recipes random",
+      "should_trigger": true,
+      "expected_action": "recipes.py random",
+      "expected_target": "affiche une des 2 recettes au hasard"
+    },
+    {
+      "id": 11,
+      "name": "search-historic",
+      "prompt": "quelle recette j'ai cuisinée le plus ?",
+      "should_trigger": true,
+      "expected_action": "recipes.py list --sort use_count",
+      "expected_target": "cake-au-chevre-et-epinards (use_count: 2)"
+    },
+    {
+      "id": 12,
+      "name": "show-by-partial",
+      "prompt": "ouvre la recette du cake",
+      "should_trigger": true,
+      "expected_action": "recipes.py show cake",
+      "expected_target": "partial match → cake-au-chevre-et-epinards"
+    },
+    {
+      "id": 13,
+      "name": "delete-explicit",
+      "prompt": "/recipes delete carbonara",
+      "should_trigger": true,
+      "expected_action": "recipes.py delete carbonara (avec confirmation idéalement)",
+      "expected_target": "fichier supprimé"
+    },
+    {
+      "id": 14,
+      "name": "negative-resto-visit",
+      "prompt": "on a déjeuné au resto ce midi avec Alice, c'était sympa",
+      "should_trigger": false,
+      "expected_action": "n/a",
+      "expected_target": "ne doit RIEN écrire dans Resources/Recipes/ ; resto = pas une recette personnelle"
+    },
+    {
+      "id": 15,
+      "name": "negative-health-nausea",
+      "prompt": "j'ai des nausées depuis ce matin",
+      "should_trigger": false,
+      "expected_action": "n/a — c'est /sante",
+      "expected_target": "alimentation au sens santé/symptôme, pas cuisine"
+    },
+    {
+      "id": 16,
+      "name": "negative-metaphor-success",
+      "prompt": "quelle est la recette du succès dans cette boîte ?",
+      "should_trigger": false,
+      "expected_action": "n/a",
+      "expected_target": "métaphore, pas vraie cuisine"
+    },
+    {
+      "id": 17,
+      "name": "negative-shopping-pizza",
+      "prompt": "je mange trop de pizza",
+      "should_trigger": false,
+      "expected_action": "n/a",
+      "expected_target": "alimentation casuelle, pas une recette"
+    },
+    {
+      "id": 18,
+      "name": "negative-grocery-list",
+      "prompt": "il faut que j'achète des œufs et des pâtes",
+      "should_trigger": false,
+      "expected_action": "n/a",
+      "expected_target": "liste de courses, pas une recette ; éventuellement /todo ou /inbox"
+    }
+  ]
+}

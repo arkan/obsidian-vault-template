@@ -10,10 +10,12 @@ tags:
 
 | Section | Link |
 |---------|------|
-| Projects | [[MOC Projects]] |
-| People | [[MOC People]] |
-| Companies | [[MOC Companies]] |
-| Resources | [[MOC Resources]] |
+| Projects | [[Areas/MOCs/MOC Projects|MOC Projects]] |
+| People | [[Areas/MOCs/MOC People|MOC People]] |
+| Companies | [[Areas/MOCs/MOC Companies|MOC Companies]] |
+| Resources | [[Areas/MOCs/MOC Resources|MOC Resources]] |
+| Tools | [[Areas/TOOLS|TOOLS]] |
+| Operations | [[Areas/Claude/operations-log|Operations Log]] |
 | Goals | [[Goals]] |
 
 ## Inbox

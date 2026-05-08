@@ -1,0 +1,33 @@
+{
+  "skill_name": "tg",
+  "evals": [
+    {
+      "id": 1,
+      "name": "slash-default-jarvis",
+      "prompt": "/tg \"Le déploiement de l'API client est terminé, plus aucune erreur 500 dans les logs depuis 30 minutes.\"\n\nThis is an automated test — DO NOT actually execute the `tg` command. Treat my prior message as confirmation (skip the y/n preview prompt). Just show me the exact `tg` command you would run.",
+      "expected_output": "Skill resolves dest=jarvis (default, no dest given), and prints the exact `tg --yes jarvis ...` command with the body text and no extra flags.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "conversational-piou-with-attachment",
+      "prompt": "envoie ça à piou avec /tmp/foo-attachment-test.png : voici la capture du bug que je viens de croiser sur l'app, il faudra que je regarde demain matin\n\nThis is an automated test — DO NOT actually execute the `tg` command. Treat my prior message as confirmation (skip the y/n preview prompt). Just show me the exact `tg` command you would run.",
+      "expected_output": "Skill triggers from conversational French, resolves dest=piou, picks up the attachment path, and prints `tg --yes piou --attach /tmp/foo-attachment-test.png \"<body>\"`.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "explicit-jarvis-yes-bypass",
+      "prompt": "/tg jarvis --yes \"Build #4218 OK en 3m24s\"\n\nThis is an automated test — DO NOT actually execute the `tg` command. The user already passed --yes so do not show the preview. Just show me the exact `tg` command you would run.",
+      "expected_output": "Skill resolves dest=jarvis explicitly, recognizes --yes (no in-chat preview), and prints `tg --yes jarvis \"Build #4218 OK en 3m24s\"`.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "missing-env-graceful-error",
+      "prompt": "/tg piou \"test depuis Claude\"\n\nActually run the `tg` command (not a dry-run). The env vars TELEGRAM_TOKEN_PIOU and TELEGRAM_CHAT_ID_PIOU are deliberately unset. Treat my prior message as confirmation (skip the in-chat y/n). The `tg` binary should fail gracefully with a clear French error mentioning the missing env var — that's what we want to verify.",
+      "expected_output": "Skill resolves dest=piou and runs `tg --yes piou \"test depuis Claude\"`. `tg` exits non-zero with a French error like `Erreur : variable d'environnement manquante : TELEGRAM_TOKEN_PIOU`. Skill relays the error to the user without crashing.",
+      "files": []
+    }
+  ]
+}

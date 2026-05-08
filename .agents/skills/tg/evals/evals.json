@@ -1,0 +1,33 @@
+{
+  "skill_name": "tg",
+  "evals": [
+    {
+      "id": 1,
+      "name": "slash-default-automation",
+      "prompt": "/tg \"The client API deployment is complete, no more 500 errors in logs for 30 minutes.\"\n\nThis is an automated test — DO NOT actually execute the `tg` command. Treat my prior message as confirmation (skip the y/n preview prompt). Just show me the exact `tg` command you would run.",
+      "expected_output": "Skill resolves dest=automation (default, no dest given), and prints the exact `tg --yes automation ...` command with the body text and no extra flags.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "conversational-personal-with-attachment",
+      "prompt": "send this to personal with /tmp/foo-attachment-test.png : here's the screenshot of the bug I just ran into on the app, I'll need to look at it tomorrow morning\n\nThis is an automated test — DO NOT actually execute the `tg` command. Treat my prior message as confirmation (skip the y/n preview prompt). Just show me the exact `tg` command you would run.",
+      "expected_output": "Skill triggers from conversational input, resolves dest=personal, picks up the attachment path, and prints `tg --yes personal --attach /tmp/foo-attachment-test.png \"<body>\"`.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "explicit-automation-yes-bypass",
+      "prompt": "/tg automation --yes \"Build #4218 OK in 3m24s\"\n\nThis is an automated test — DO NOT actually execute the `tg` command. The user already passed --yes so do not show the preview. Just show me the exact `tg` command you would run.",
+      "expected_output": "Skill resolves dest=automation explicitly, recognizes --yes (no in-chat preview), and prints `tg --yes automation \"Build #4218 OK in 3m24s\"`.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "missing-env-graceful-error",
+      "prompt": "/tg personal \"test from Codex\"\n\nActually run the `tg` command (not a dry-run). The env vars TELEGRAM_TOKEN_PERSONAL and TELEGRAM_CHAT_ID_PERSONAL are deliberately unset. Treat my prior message as confirmation (skip the in-chat y/n). The `tg` binary should fail gracefully with a clear error mentioning the missing env var — that's what we want to verify.",
+      "expected_output": "Skill resolves dest=personal and runs `tg --yes personal \"test from Codex\"`. `tg` exits non-zero with an error like `Error: missing environment variable: TELEGRAM_TOKEN_PERSONAL`. Skill relays the error to the user without crashing.",
+      "files": []
+    }
+  ]
+}

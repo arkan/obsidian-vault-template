@@ -1,0 +1,29 @@
+{
+  "skill_name": "brainstorm",
+  "evals": [
+    {
+      "id": 0,
+      "name": "saas-rh-pme",
+      "prompt": "/brainstorm j'ai une idee : un outil SaaS pour aider les PME francaises (10-50 personnes) a gerer leurs entretiens annuels — genre formulaires + tracking objectifs + rappels automatiques. C'est un truc que je vois galere dans toutes les boites ou j'ai bosse. Vas-y en autonome, fais le tour complet et donne-moi le verdict avec decision log a la fin.",
+      "expected_output": "Decision log tabulaire en français avec verdict GO/PIVOT/NO-GO. Au moins 3 recherches Exa deep avec citations. Couverture des 7 branches du grill. Proposition d'un fichier Projects/<nom>.md avec frontmatter status: backlog si GO. Au moins 3 next steps concrets. Cite des concurrents réels (Lucca, Eurecia, Javelo, etc.).",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 1,
+      "name": "physical-coffee-subscription",
+      "prompt": "/brainstorm je pense lancer une marque de cafe en grains en abonnement, mais le truc c'est qu'on travaillerait avec des torrefacteurs locaux differents chaque mois (un abonnement decouverte). Marche francais, premium (~25€/mois). Vas-y en autonome jusqu'au verdict.",
+      "expected_output": "Decision log avec verdict. Recherche Exa deep doit identifier les acteurs existants (Cafés Richard, Belleville Brûlerie, Hexagone Café, etc.) et signaux marché. Le grill doit pousser sur logistique/marges/fidélisation (problème classique des box décou). Verdict probable: PIVOT ou NO-GO vu la saturation. Sortie en français.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "saturated-coding-courses",
+      "prompt": "/brainstorm idee : une plateforme de cours en ligne pour devs juniors qui veulent apprendre a coder avec de l'IA — genre tutos pratiques sur comment utiliser Claude/Cursor pour shipper des projets. Vas-y en autonome.",
+      "expected_output": "Decision log avec verdict probable NO-GO ou PIVOT serré. Recherche Exa doit faire émerger les acteurs (OpenClassrooms, Maven, Scrimba, et la flopée d'influenceurs YouTube/Twitter sur AI coding). Le grill doit attaquer durement la differentiation et le wedge (marché saturé, concurrence gratuite YouTube). Si NO-GO, fichier va dans Inbox/ pas Projects/.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

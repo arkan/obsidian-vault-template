@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "skills": {
+    "amazon-shopping": {
+      "source": "arkan/skills",
+      "sourceType": "github",
+      "computedHash": "db5fa00d874f911aa8a24da72aba2b1e7ee4abfcef48ba285853e41d309dbced"
+    },
+    "design-an-interface": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "885b05367fb1cf61a1e27e0d50f14d2502a05c1fa276c6e9ea050ce6a90e7095"
+    },
+    "digest": {
+      "source": "CamilleRoux/tech-digest",
+      "sourceType": "github",
+      "computedHash": "8924a79e24881d8bd6a4ee85c5382a512cdfd4d1c30eca89fe58d1b59e1d7da3"
+    },
+    "gen-wiki": {
+      "source": "arkan/skills",
+      "sourceType": "github",
+      "computedHash": "366ec98c9270ee86c815242ef5e7311ce9c79898b63f4dbd82d8ca54cb45681a"
+    },
+    "obsidian-bases": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "computedHash": "ed0a53502693e56c67575a9958daca9a3a1ac7ba483367f400b4cad9488bfb3c"
+    },
+    "prd-to-issues": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "32192340c1a14317b25741f5a0a38d162b387b6d4bfd09e0ed3859367321e98f"
+    },
+    "prd-to-plan": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "b0fad4a6e8097a5095fe00bfc2ebd98827c2d599e8b0a974c9d3c50b59295ac8"
+    },
+    "startup-pressure-test": {
+      "source": "Kappaemme-git/codex-startup-pressure-test-skill",
+      "sourceType": "github",
+      "skillPath": "startup-pressure-test/SKILL.md",
+      "computedHash": "6e07a2bcdc81af7db125104f42839813c5afa1e0ceb9a8bbdff7ac4156055f0f"
+    },
+    "tdd": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "ad055544599481182d0079c4198e85da26677cb408a677be2da04915375f0427"
+    },
+    "write-a-prd": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "computedHash": "d03d51db8cfd3dd5c27f9b8e1ffe61686391fdbd62bf4cb2f47db7e62ee68cd2"
+    }
+  }
+}

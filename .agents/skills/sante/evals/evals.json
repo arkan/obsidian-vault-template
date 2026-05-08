@@ -1,0 +1,257 @@
+{
+  "skill_name": "sante",
+  "evals": [
+    {
+      "id": 1,
+      "name": "weight-direct",
+      "prompt": "78,2kg ce matin",
+      "should_trigger": true,
+      "expected_category": "measurement",
+      "expected_target": "Daily Notes/2026/2026-04/2026-04-25.md (frontmatter weight)",
+      "expected_questions": "none — direct write"
+    },
+    {
+      "id": 2,
+      "name": "sleep-bad",
+      "prompt": "j'ai dormi 5h cette nuit, c'était horrible",
+      "should_trigger": true,
+      "expected_category": "measurement",
+      "expected_target": "Daily Notes/2026/2026-04/2026-04-25.md (frontmatter sleep)",
+      "expected_questions": "none — direct write"
+    },
+    {
+      "id": 3,
+      "name": "blood-pressure",
+      "prompt": "tension 13/8 ce matin avant le café",
+      "should_trigger": true,
+      "expected_category": "measurement",
+      "expected_target": "Areas/Health/Measurements/2026-04.md (log mensuel)",
+      "expected_questions": "none — direct write"
+    },
+    {
+      "id": 4,
+      "name": "weight-trend",
+      "prompt": "j'ai pris 1kg en une semaine",
+      "should_trigger": true,
+      "expected_category": "search-or-measurement",
+      "expected_target": "soit ajout mesure du jour, soit recherche tendance",
+      "expected_questions": "peut demander poids actuel"
+    },
+    {
+      "id": 5,
+      "name": "back-pain",
+      "prompt": "j'ai mal au dos depuis hier",
+      "should_trigger": true,
+      "expected_category": "symptom-or-condition",
+      "expected_target": "Areas/Health/Events/ ou Conditions/Hernie-Discale.md",
+      "expected_questions": "lié à condition existante ? intensité ?"
+    },
+    {
+      "id": 6,
+      "name": "recurring-migraine",
+      "prompt": "encore une migraine ce matin, la troisième cette semaine",
+      "should_trigger": true,
+      "expected_category": "condition-or-event",
+      "expected_target": "doit proposer promotion en condition (Areas/Health/Conditions/Migraines.md)",
+      "expected_questions": "promotion en condition chronique ?"
+    },
+    {
+      "id": 7,
+      "name": "knee-pain-running",
+      "prompt": "douleur au genou droit qui revient quand je cours",
+      "should_trigger": true,
+      "expected_category": "condition",
+      "expected_target": "Areas/Health/Conditions/ (potentielle nouvelle condition)",
+      "expected_questions": "depuis quand ? première fois ?"
+    },
+    {
+      "id": 8,
+      "name": "nausea-meal",
+      "prompt": "nausées après le repas du midi",
+      "should_trigger": true,
+      "expected_category": "symptom-event",
+      "expected_target": "Areas/Health/Events/2026-04-25-Nausees.md",
+      "expected_questions": "intensité ? lié à un aliment ?"
+    },
+    {
+      "id": 9,
+      "name": "medication-start",
+      "prompt": "j'ai commencé le Doliprane 1000 il y a 3 jours",
+      "should_trigger": true,
+      "expected_category": "medication",
+      "expected_target": "Areas/Health/Medications/Doliprane.md (creation ou update)",
+      "expected_questions": "prescrit pour quoi ? par qui ? fréquence ?"
+    },
+    {
+      "id": 10,
+      "name": "medication-stop",
+      "prompt": "j'ai arrêté le traitement, ça me faisait des effets secondaires",
+      "should_trigger": true,
+      "expected_category": "medication",
+      "expected_target": "Areas/Health/Medications/<existing>.md (update status: stopped)",
+      "expected_questions": "quel traitement ? quand arrêt ? effets observés ?"
+    },
+    {
+      "id": 11,
+      "name": "medication-missed",
+      "prompt": "j'ai oublié ma pilule hier",
+      "should_trigger": true,
+      "expected_category": "measurement-event",
+      "expected_target": "Measurements/2026-04.md (ligne missed-dose) ou note dans medication",
+      "expected_questions": "laquelle ? aucune si une seule médication active"
+    },
+    {
+      "id": 12,
+      "name": "appointment-future",
+      "prompt": "RDV cardio le 5 mai à 14h avec le Dr Martin",
+      "should_trigger": true,
+      "expected_category": "appointment",
+      "expected_target": "Areas/Health/Events/2026-05-05-Consultation-Cardio-Martin.md",
+      "expected_questions": "lien avec une condition cardio existante ?"
+    },
+    {
+      "id": 13,
+      "name": "consultation-past",
+      "prompt": "j'ai vu mon généraliste aujourd'hui, il m'a dit que ma tension est trop haute",
+      "should_trigger": true,
+      "expected_category": "consultation-event",
+      "expected_target": "Areas/Health/Events/2026-04-25-Consultation-Generaliste.md",
+      "expected_questions": "qui est le généraliste ? recommandations ?"
+    },
+    {
+      "id": 14,
+      "name": "lab-results",
+      "prompt": "résultats prise de sang : cholestérol 2,4, ferritine 45",
+      "should_trigger": true,
+      "expected_category": "analysis-event",
+      "expected_target": "Areas/Health/Events/YYYY-MM-DD-Prise-De-Sang.md",
+      "expected_questions": "date prélèvement ? labo ?"
+    },
+    {
+      "id": 15,
+      "name": "imaging-future",
+      "prompt": "scanner du dos prévu la semaine prochaine",
+      "should_trigger": true,
+      "expected_category": "appointment-imaging",
+      "expected_target": "Areas/Health/Events/<date>-Scanner-Dos.md (category: appointment ou imaging)",
+      "expected_questions": "date exacte ? lien avec hernie ?"
+    },
+    {
+      "id": 16,
+      "name": "search-when-migraine",
+      "prompt": "j'ai eu cette migraine la dernière fois c'était quand ?",
+      "should_trigger": true,
+      "expected_category": "search",
+      "expected_target": "lecture seule — grep dans Areas/Health/",
+      "expected_questions": "none — recherche directe"
+    },
+    {
+      "id": 17,
+      "name": "search-weight-trend",
+      "prompt": "montre-moi mon évolution de poids sur 3 mois",
+      "should_trigger": true,
+      "expected_category": "search-trend",
+      "expected_target": "lecture seule — daily notes 3 derniers mois",
+      "expected_questions": "none"
+    },
+    {
+      "id": 18,
+      "name": "search-doctor-said",
+      "prompt": "qu'est-ce que le cardio m'avait dit la dernière fois ?",
+      "should_trigger": true,
+      "expected_category": "search",
+      "expected_target": "lecture seule — events où provider matche cardio",
+      "expected_questions": "none"
+    },
+    {
+      "id": 19,
+      "name": "search-medication-duration",
+      "prompt": "ça fait combien de temps que je prends ce médicament ?",
+      "should_trigger": true,
+      "expected_category": "search-medication",
+      "expected_target": "lecture seule — Areas/Health/Medications/",
+      "expected_questions": "lequel ? si plusieurs actifs"
+    },
+    {
+      "id": 20,
+      "name": "search-monthly-recap",
+      "prompt": "récap de ma santé ce mois-ci",
+      "should_trigger": true,
+      "expected_category": "search-aggregate",
+      "expected_target": "lecture seule — events + measurements + daily 2026-04",
+      "expected_questions": "none"
+    },
+    {
+      "id": 21,
+      "name": "negative-meeting-fatigue",
+      "prompt": "je suis crevé après cette réunion",
+      "should_trigger": false,
+      "expected_category": "n/a",
+      "expected_target": "ne doit RIEN écrire dans Areas/Health/",
+      "expected_questions": "none — fatigue pro, pas santé"
+    },
+    {
+      "id": 22,
+      "name": "negative-financial-metaphor",
+      "prompt": "comment va la santé financière du projet ?",
+      "should_trigger": false,
+      "expected_category": "n/a",
+      "expected_target": "ne doit RIEN écrire",
+      "expected_questions": "none — métaphore"
+    },
+    {
+      "id": 23,
+      "name": "negative-running-sport",
+      "prompt": "j'ai couru 10km ce matin",
+      "should_trigger": false,
+      "expected_category": "n/a",
+      "expected_target": "ne doit RIEN écrire dans Areas/Health/ (sport hors-scope v1)",
+      "expected_questions": "none"
+    },
+    {
+      "id": 24,
+      "name": "negative-pizza-food",
+      "prompt": "je mange trop de pizza",
+      "should_trigger": false,
+      "expected_category": "n/a",
+      "expected_target": "ne doit RIEN écrire (alimentation pure)",
+      "expected_questions": "none"
+    },
+    {
+      "id": 25,
+      "name": "negative-emotional-criticism",
+      "prompt": "j'ai mal pris cette critique au taf",
+      "should_trigger": false,
+      "expected_category": "n/a",
+      "expected_target": "ne doit RIEN écrire",
+      "expected_questions": "none — émotionnel pro"
+    },
+    {
+      "id": 26,
+      "name": "negative-headache-figurative",
+      "prompt": "ce code me donne mal au crâne",
+      "should_trigger": false,
+      "expected_category": "n/a",
+      "expected_target": "ne doit RIEN écrire (figuré)",
+      "expected_questions": "none"
+    },
+    {
+      "id": 27,
+      "name": "negative-client-figurative",
+      "prompt": "le client est malade de ses retards",
+      "should_trigger": false,
+      "expected_category": "n/a",
+      "expected_target": "ne doit RIEN écrire (figuré)",
+      "expected_questions": "none"
+    },
+    {
+      "id": 28,
+      "name": "negative-hotel-sleep",
+      "prompt": "j'ai dormi à l'hôtel",
+      "should_trigger": false,
+      "expected_category": "n/a",
+      "expected_target": "ne doit RIEN écrire (contexte voyage, pas mesure de durée)",
+      "expected_questions": "none"
+    }
+  ]
+}
